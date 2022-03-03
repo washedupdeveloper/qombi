@@ -1,7 +1,13 @@
 {
   "recommendations": [
-    
     "nrwl.angular-console",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "dbaeumer.vscode-eslint",
+    "Prisma.prisma",
+    "EditorConfig.EditorConfig",
+    "GraphQL.vscode-graphql",
+    "mikestead.dotenv",
+    "redhat.vscode-yaml"
   ]
 }
