@@ -3,13 +3,21 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "postinstall": "ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx lint",
-    "postinstall": "ngcc --properties es2015 browser module main"
+    "upgrade": "yarn upgrade-interactive"
   },
   "private": true,
+  "packageManager": "yarn@3.2.0",
+  "npm": {
+    "package-lock": false
+  },
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "@angular/animations": "~13.2.0",
     "@angular/cdk": "^13.2.4",
