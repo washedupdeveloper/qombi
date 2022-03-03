@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "bartender": "apps/bartender",
+    "bartender-e2e": "apps/bartender-e2e"
+  }
+}
