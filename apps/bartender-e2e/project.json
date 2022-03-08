@@ -1,0 +1,30 @@
+{
+  "root": "apps/bartender-e2e",
+  "sourceRoot": "apps/bartender-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/bartender-e2e/cypress.json",
+        "devServerTarget": "bartender:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "bartender:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "cache": true,
+        "fix": true,
+        "lintFilePatterns": ["apps/bartender-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["bartender"]
+}
