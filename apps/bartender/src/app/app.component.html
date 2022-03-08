@@ -1,0 +1,81 @@
+<mat-sidenav-container [autosize]="true">
+  <mat-sidenav
+    #sidebar
+    fixedInViewport
+    class="h-full flex justify-center text-center"
+    [ngClass]="!isSidebarExpanded ? 'w-16' : 'w-52'"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    mode="side"
+    [opened]="true"
+  >
+    <mat-toolbar class="cursor-pointer justify-center" (click)="toggleSidebar()">
+      <mat-icon aria-hidden="false" class="hover:scale-110 transition ease-in-out delay-75">menu</mat-icon>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a
+        *ngFor="let route of routes"
+        [routerLink]="route.path"
+        mat-list-item
+        routerLinkActive
+        #routerLink="routerLinkActive"
+        [matTooltip]="!isSidebarExpanded ? route.name : ''"
+        matTooltipPosition="right"
+        class="group"
+      >
+        <mat-icon
+          matListIcon
+          [ngClass]="{ 'material-icons-outlined': !routerLink.isActive }"
+          [color]="routerLink.isActive ? 'primary' : ''"
+          class="group transition ease-in-out hover:scale-110"
+        >
+          {{ route.icon }}
+        </mat-icon>
+        <p matLine *ngIf="isSidebarExpanded" class="group transition ease-in-out hover:scale-110 hover:font-medium">
+          {{ route.name }}
+        </p>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="sticky z-50">
+      <span class="cursor-default capitalize">bartender</span>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+    <ng-container class="p-4">
+      <h1>Keycloak Angular Example</h1>
+
+      <button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
+      <button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button>
+
+      <ng-container *ngIf="user">
+        <h2>User information</h2>
+        <table>
+          <tr *ngIf="user.username">
+            <th scope="row">Username</th>
+            <td>{{ user.username }}</td>
+          </tr>
+          <tr *ngIf="user.firstName">
+            <th scope="row">First name</th>
+            <td>{{ user.firstName }}</td>
+          </tr>
+          <tr *ngIf="user.lastName">
+            <th scope="row">First name</th>
+            <td>{{ user.lastName }}</td>
+          </tr>
+          <tr *ngIf="user.email">
+            <th scope="row">E-mail</th>
+            <td>{{ user.email }}</td>
+          </tr>
+          <tr>
+            <th scope="row">E-mail verified</th>
+            <td>{{ user.emailVerified ? 'Yes' : 'No' }}</td>
+          </tr>
+        </table>
+      </ng-container>
+    </ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/angular/core",
+  "sourceRoot": "libs/angular/core/src",
+  "prefix": "qombi",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/angular/core"],
+      "options": {
+        "project": "libs/angular/core/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/angular/core/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/angular/core/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/angular/core"],
+      "options": {
+        "jestConfig": "libs/angular/core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/angular/core/src/**/*.ts", "libs/angular/core/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

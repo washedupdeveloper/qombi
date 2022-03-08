@@ -1,0 +1,40 @@
+{
+  "projectType": "library",
+  "root": "libs/angular/ui",
+  "sourceRoot": "libs/angular/ui/src",
+  "prefix": "qombi",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/angular/ui"],
+      "options": {
+        "project": "libs/angular/ui/ng-package.json",
+        "tailwindConfig": "libs/angular/ui/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/angular/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/angular/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/angular/ui"],
+      "options": {
+        "jestConfig": "libs/angular/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/angular/ui/src/**/*.ts", "libs/angular/ui/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
