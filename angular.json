@@ -1,6 +1,9 @@
 {
   "version": 2,
   "projects": {
+    "angular-core": "libs/angular/core",
+    "angular-ui": "libs/angular/ui",
+    "api": "apps/api",
     "bartender": "apps/bartender",
     "bartender-e2e": "apps/bartender-e2e"
   }

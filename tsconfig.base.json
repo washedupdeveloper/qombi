@@ -33,7 +33,10 @@
     "allowUnusedLabels": false,
     "pretty": true,
     "newLine": "lf",
-    "paths": {}
+    "paths": {
+      "@qombi/angular/core": ["libs/angular/core/src/index.ts"],
+      "@qombi/angular/ui": ["libs/angular/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
